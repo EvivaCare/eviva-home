@@ -1,15 +1,41 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Countdown from '../components/Countdown.astro';
+import WaveSep from '../components/WaveSep.astro';
+import Feeling from '../components/Feeling.astro';
+import Dive from '../components/Dive.astro';
+import Meet from '../components/Meet.astro';
+import Oviva from '../components/Oviva.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+
 export const prerender = true;
+
+const lang = 'en';
+const t = (await import('../locales/en.json')).default;
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="0;url=/en/" />
-    <link rel="canonical" href="/en/" />
-    <title>Redirecting…</title>
-  </head>
-  <body>
-    <p>Redirecting to <a href="/en/">English</a>…</p>
-  </body>
-</html>
+
+<BaseLayout
+  title={t.meta.title}
+  description={t.meta.description}
+  lang={lang}
+  canonicalUrl={new URL('/', Astro.url.origin).toString()}
+>
+  <div class="page">
+    <Hero t={t} lang={lang} />
+    <Countdown t={t} />
+    <Feeling t={t} />
+    <WaveSep />
+    <Dive t={t} />
+    <WaveSep variant="reversed" />
+    <Meet t={t} />
+    <WaveSep />
+    <Oviva t={t} />
+    <WaveSep variant="reversed" />
+    <Testimonials t={t} />
+    <CTA t={t} />
+    <Footer t={t} lang={lang} />
+  </div>
+</BaseLayout>
