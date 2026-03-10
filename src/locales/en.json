@@ -3,6 +3,11 @@
     "title": "Oviva Care – Women's Hormonal Health Webinar",
     "description": "Save your spot at the women's hormonal health webinar. Boost your mood and get back your energy."
   },
+  "nav": {
+    "home": "Home",
+    "about": "About Me",
+    "menu": "Menu"
+  },
   "hero": {
     "question": "You feel tired, hungry, foggy, anxious, and you crave for sugar all the time?",
     "joinLive": "JOIN LIVE",
@@ -78,9 +83,146 @@
   },
   "footer": {
     "contactUs": "Contact us",
-    "copyright": "© 2024 Oviva Care. All rights reserved.",
+    "copyright": "\u00a9 2024 Oviva Care. All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms of Service",
     "cookies": "Cookies"
+  },
+  "aboutMeta": {
+    "title": "About Me & Work With Me – Agnieszka Fronia",
+    "description": "Women's Health Psychologist. Supporting women who feel overwhelmed, anxious, exhausted, or disconnected from themselves."
+  },
+  "aboutHero": {
+    "tagline": "Women's Health Psychologist",
+    "headline": "You deserve to feel whole again",
+    "subtitle": "Supporting women who feel overwhelmed, anxious, exhausted, or disconnected from themselves.",
+    "description": "This is a calm and safe space where your symptoms are taken seriously.",
+    "approach": "Heal your anxiety, panic attacks, and hormone-related symptoms through a science-based and compassionate approach that respects your nervous system and your lived experience.",
+    "cta": "Schedule a Free Call"
+  },
+  "aboutSymptoms": {
+    "title": "You're not imagining your symptoms",
+    "intro": "If you're here, you may have been told that your tests are \"normal\", yet you still experience:",
+    "items": [
+      "Anxiety or panic attacks",
+      "Mood swings, irritability, or emotional overwhelm",
+      "Fatigue, brain fog, or sleep problems",
+      "Symptoms that worsen around your cycle",
+      "Symptoms connected to your perimenopause transition",
+      "A sense that your body is working against you"
+    ]
+  },
+  "aboutApproach": {
+    "title": "A different way of working with anxiety and mental health",
+    "description": "Many women are offered psychological therapy without hormonal support. However, the nervous system, hormonal balance, and emotional health are deeply interconnected.",
+    "statement": "These symptoms are real and they deserve a deeper, more integrated understanding.",
+    "resultsTitle": "Women who work with me often begin to experience:",
+    "results": [
+      "Fewer panic attacks",
+      "Better emotional regulation",
+      "Improved sleep and energy",
+      "Clearer understanding of their hormonal patterns",
+      "Feeling calmer and more in control of their body",
+      "Greater confidence in managing stress and anxiety",
+      "Feeling understood and supported rather than dismissed"
+    ],
+    "cta": "Schedule a Free Call"
+  },
+  "aboutPillars": {
+    "title": "What it feels like to work with me",
+    "pillars": [
+      {
+        "number": "01",
+        "title": "Psychological Therapy",
+        "description": "As a psychologist, I provide evidence-based tools for anxiety, panic attacks, emotional regulation, and stress. We work at a pace that respects your nervous system, helping it move out of chronic survival mode."
+      },
+      {
+        "number": "02",
+        "title": "Hormonal & Functional Health Insight",
+        "description": "I assess whether hormonal imbalances may be contributing to your symptoms, with particular attention to thyroid, adrenal, and sex hormones and their relationship to anxiety, mood, energy levels, and sleep."
+      },
+      {
+        "number": "03",
+        "title": "Lab Test Interpretation",
+        "description": "If you have existing lab results, I help you understand what they mean in the context of your symptoms, life circumstances, and hormonal stage so the information becomes useful rather than overwhelming."
+      },
+      {
+        "number": "04",
+        "title": "Personalised Protocols",
+        "description": "Based on your individual presentation, I develop clear, realistic protocols that may include lifestyle adjustments, nutrition guidance, nervous system practices, and supportive strategies."
+      }
+    ],
+    "note": "This is not a one-size-fits-all approach. All support is personalised."
+  },
+  "aboutBio": {
+    "title": "About Me",
+    "intro": "Hi, I'm Agnieszka Fronia, a psychologist specialised in women's hormonal health and nervous system regulation.",
+    "p1": "I help women who feel overwhelmed, anxious, exhausted, or disconnected from their bodies to regain confidence, emotional stability, and a sense of control. My work combines psychological therapy, hormonal health insight, and nervous system regulation so you can understand the root causes of your symptoms \u2014 not just manage them.",
+    "p2": "With a master's degree in psychological medicine and mental health, I integrate knowledge from psychology, neuroendocrinology, and lifestyle medicine to provide a clear, science-based approach that is also compassionate and practical.",
+    "p3": "I create safe, supportive spaces where women can have honest conversations about topics often considered taboo, including anxiety, panic attacks, menopause, perimenopause, menstrual pain, miscarriage, IVF, and other hormonal or emotional challenges.",
+    "p4": "Together, we explore what your body and mind are trying to tell you and develop personalised strategies that help you feel calmer, clearer, and more in control.",
+    "credentialsTitle": "Professional Background",
+    "credentials": [
+      "Master's degree in Psychological Medicine & Mental Health",
+      "Women's hormonal health certified",
+      "Integrative nervous system regulation approach",
+      "Experience supporting women with anxiety and hormonal transitions"
+    ]
+  },
+  "aboutServices": {
+    "title": "Services & Pricing",
+    "therapyTitle": "1:1 Integrative Therapy",
+    "therapySubtitle": "For women who want in-depth, personalised support for anxiety, panic attacks, and hormonal-related symptoms.",
+    "therapyDescription": "This is ongoing 1:1 work that integrates psychological therapy with hormonal and nervous system support.",
+    "therapyIncludes": "What's included:",
+    "therapyItems": [
+      "Psychological therapy with a women's health psychologist",
+      "Anxiety and panic attack support",
+      "Nervous system regulation and stabilisation",
+      "Personalised lifestyle and support protocols",
+      "Continuous guidance and adjustment as your body responds"
+    ],
+    "therapyNote": "Sessions are structured, calm, and paced according to your nervous system.",
+    "singleTitle": "Single Session",
+    "singleDuration": "60 minutes",
+    "singlePrice": "\u20ac120",
+    "singleNote": "Suitable for existing clients or short-term support.",
+    "monthlyTitle": "1 Month Support",
+    "monthlyPrice": "\u20ac440",
+    "monthlyPer": "per month",
+    "monthlyIncludes": [
+      "4 weeks of 1:1 sessions (60 minutes)",
+      "Email or message support between sessions",
+      "Lab interpretation (if applicable)",
+      "Ongoing protocol adjustments"
+    ],
+    "quarterlyTitle": "3-Month Support Program",
+    "quarterlyPrice": "\u20ac1,260",
+    "quarterlyPer": "\u20ac420/month",
+    "quarterlyIncludes": [
+      "12 weeks of 1:1 sessions (60 minutes)",
+      "Email or message support between sessions",
+      "Hormonal & nervous system assessment",
+      "Lab interpretation (if applicable)",
+      "Fully personalised protocols",
+      "Continuous emotional and therapeutic support"
+    ],
+    "quarterlyNote": "This option allows for deeper, more sustainable change and is recommended for anxiety, panic attacks, and hormonal transitions such as perimenopause.",
+    "quarterlyCta": "Work with me 1:1",
+    "labTitle": "Lab Review Sessions",
+    "labSubtitle": "For women who want professional interpretation of their lab results and clear next steps.",
+    "labDescription": "This session is often the best starting point for women who feel confused about their symptoms, test results, or hormonal changes.",
+    "labIncludes": [
+      "Review of existing lab tests (thyroid, adrenal, sex hormones, etc.)",
+      "Explanation of results in plain, understandable language",
+      "Connection between hormonal patterns and mental/emotional symptoms",
+      "Clear, realistic recommendations for next steps"
+    ],
+    "labDuration": "90-minute session",
+    "labPrice": "\u20ac180",
+    "notSure": "Not sure which option is right for you?",
+    "notSureDescription": "A clarity call allows us to talk through your symptoms and explore the most appropriate type of support.",
+    "notSureCta": "Schedule a free call",
+    "recommended": "Recommended"
   }
 }

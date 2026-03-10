@@ -1,0 +1,150 @@
+---
+interface Props { t: typeof import('../../locales/en.json') }
+const { t } = Astro.props;
+
+const icons = [
+  // Brain - Psychological Therapy
+  `<svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 4C14 4 9 9 9 15C9 18.5 10.5 21.6 13 23.7V34C13 35.1 13.9 36 15 36H25C26.1 36 27 35.1 27 34V23.7C29.5 21.6 31 18.5 31 15C31 9 26 4 20 4Z" stroke="var(--color-brand-magenta)" stroke-width="2" fill="none"/><path d="M16 20H24M16 24H24M16 28H24" stroke="var(--color-brand-magenta)" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="13" r="3" stroke="var(--color-orange)" stroke-width="1.5" fill="var(--color-orange-10)"/></svg>`,
+  // Hormones
+  `<svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M8 32C12 20 16 14 20 12C24 10 28 14 32 8" stroke="var(--color-brand-magenta)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="20" cy="12" r="4" stroke="var(--color-orange)" stroke-width="1.5" fill="var(--color-orange-10)"/><circle cx="32" cy="8" r="3" stroke="var(--color-brand-magenta)" stroke-width="1.5" fill="rgba(166,3,93,0.1)"/><circle cx="8" cy="32" r="3" stroke="var(--color-brand-magenta)" stroke-width="1.5" fill="rgba(166,3,93,0.1)"/></svg>`,
+  // Lab / Microscope
+  `<svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M16 6V22L8 34H32L24 22V6" stroke="var(--color-brand-magenta)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M14 6H26" stroke="var(--color-brand-magenta)" stroke-width="2" stroke-linecap="round"/><path d="M12 30H28" stroke="var(--color-orange)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><circle cx="20" cy="17" r="2" fill="var(--color-orange-20)" stroke="var(--color-orange)" stroke-width="1"/></svg>`,
+  // Protocol / Clipboard
+  `<svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="8" y="6" width="24" height="30" rx="3" stroke="var(--color-brand-magenta)" stroke-width="2" fill="none"/><path d="M15 4H25V8C25 9.1 24.1 10 23 10H17C15.9 10 15 9.1 15 8V4Z" stroke="var(--color-brand-magenta)" stroke-width="1.5" fill="rgba(166,3,93,0.05)"/><path d="M14 17H26M14 22H22M14 27H20" stroke="var(--color-orange)" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+];
+---
+
+<section class="pillars section">
+  <h2 class="pillars-title reveal-blur">{t.aboutPillars.title}</h2>
+  <div class="pillars-grid" data-stagger="0.12">
+    {t.aboutPillars.pillars.map((pillar: { number: string; title: string; description: string }, i: number) => (
+      <div class="pillar-card" data-tilt>
+        <div class="pillar-icon" set:html={icons[i]} />
+        <span class="pillar-number">{pillar.number}</span>
+        <h3 class="pillar-title">{pillar.title}</h3>
+        <p class="pillar-desc">{pillar.description}</p>
+        <div class="pillar-line" aria-hidden="true"></div>
+      </div>
+    ))}
+  </div>
+  <p class="pillars-note reveal" style="transition-delay: 0.5s">{t.aboutPillars.note}</p>
+</section>
+
+<style>
+  .pillars {
+    padding-top: var(--spacing-128);
+    padding-bottom: var(--spacing-128);
+    background: var(--color-bg-page);
+    position: relative;
+  }
+  .pillars-title {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.5vw, 41px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+    text-align: center;
+    margin: 0 0 var(--spacing-64);
+  }
+  .pillars-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-32);
+  }
+  .pillar-card {
+    padding: var(--spacing-40);
+    border-radius: var(--radius-24);
+    background: white;
+    border: 1px solid var(--color-grey-200);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+  }
+  .pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-brand-magenta), var(--color-orange));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .pillar-card:hover::before {
+    opacity: 1;
+  }
+  .pillar-icon {
+    margin-bottom: var(--spacing-16);
+    display: flex;
+  }
+  .pillar-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 400;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--color-orange), var(--color-orange-80));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.2;
+    position: absolute;
+    top: 20px;
+    right: 24px;
+  }
+  .pillar-title {
+    font-family: var(--font-body);
+    font-size: clamp(18px, 1.5vw, 22px);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-16);
+    letter-spacing: 0.3px;
+  }
+  .pillar-desc {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.1vw, 16px);
+    line-height: 1.8;
+    color: var(--color-grey-700);
+    margin: 0;
+  }
+  .pillar-line {
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-brand-magenta), var(--color-orange));
+    margin-top: var(--spacing-24);
+    border-radius: 2px;
+    transition: width 0.8s var(--ease-out-expo);
+  }
+  .pillar-card:hover .pillar-line {
+    width: 60px;
+  }
+  .pillars-note {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: clamp(16px, 1.2vw, 18px);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--color-brand-magenta);
+    margin: var(--spacing-56) 0 0;
+  }
+
+  @media (max-width: 768px) {
+    .pillars {
+      padding-top: var(--spacing-64);
+      padding-bottom: var(--spacing-64);
+    }
+    .pillars-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-16);
+    }
+    .pillar-card {
+      padding: var(--spacing-24);
+    }
+    .pillars-title {
+      margin-bottom: var(--spacing-32);
+    }
+  }
+</style>

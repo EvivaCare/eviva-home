@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AboutHero from '../components/about/AboutHero.astro';
+import AboutSymptoms from '../components/about/AboutSymptoms.astro';
+import AboutApproach from '../components/about/AboutApproach.astro';
+import WaveSep from '../components/WaveSep.astro';
+import AboutPillars from '../components/about/AboutPillars.astro';
+import AboutBio from '../components/about/AboutBio.astro';
+import AboutServices from '../components/about/AboutServices.astro';
+import Footer from '../components/Footer.astro';
+
+export const prerender = true;
+
+const lang = 'en';
+const t = (await import('../locales/en.json')).default;
+---
+
+<BaseLayout
+  title={t.aboutMeta.title}
+  description={t.aboutMeta.description}
+  lang={lang}
+  canonicalUrl={new URL('/about', Astro.url.origin).toString()}
+>
+  <div class="page">
+    <AboutHero t={t} lang={lang} />
+    <AboutSymptoms t={t} />
+    <WaveSep />
+    <AboutApproach t={t} />
+    <WaveSep variant="reversed" />
+    <AboutPillars t={t} />
+    <WaveSep />
+    <AboutBio t={t} />
+    <WaveSep variant="reversed" />
+    <AboutServices t={t} />
+    <Footer t={t} lang={lang} />
+  </div>
+</BaseLayout>

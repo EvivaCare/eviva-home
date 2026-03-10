@@ -1,23 +1,15 @@
 ---
 import ButtonPrimary from './Button/ButtonPrimary.astro';
+import Navbar from './Navbar.astro';
 interface Props { t: typeof import('../locales/en.json'); lang: string }
 const { t, lang } = Astro.props;
-const otherLang = lang === 'es' ? 'en' : 'es';
-const otherLabel = lang === 'es' ? 'EN' : 'ES';
 ---
 
 <header class="hero">
   <div class="hero-bg-wrap">
     <img class="hero-bg parallax" data-speed="-0.15" src="https://www.figma.com/api/mcp/asset/584a4666-d3ac-4f36-9714-616395f12e86" alt="" width="1512" height="982" />
   </div>
-  <nav class="hero-nav">
-    <a href={`/${lang}/`} class="hero-logo" aria-label="Oviva Care">
-      <img src="https://www.figma.com/api/mcp/asset/ffd65b2d-b83b-4a72-b5f8-362ffc27b5ab" alt="Oviva Care" width="237" height="70" />
-    </a>
-    <a href={`/${otherLang}/`} class="lang-switch magnetic" aria-label={`Switch to ${otherLabel}`}>
-      {otherLabel}
-    </a>
-  </nav>
+  <Navbar t={t} lang={lang} activePage="home" />
   <div class="hero-card" id="hero-card">
     <p class="hero-question font-heading-6">{t.hero.question}</p>
     <div class="hero-card-title">
@@ -40,6 +32,7 @@ const otherLabel = lang === 'es' ? 'EN' : 'ES';
     align-items: center;
     justify-content: flex-start;
     padding: var(--spacing-80) var(--spacing-156);
+    padding-top: 120px;
     overflow: hidden;
   }
   .hero-bg-wrap {
@@ -54,40 +47,6 @@ const otherLabel = lang === 'es' ? 'EN' : 'ES';
     pointer-events: none;
     animation: heroBgZoom 2.5s var(--ease-out-expo) forwards;
     transform-origin: center center;
-  }
-  .hero-nav {
-    position: absolute;
-    top: 32px;
-    left: var(--spacing-156);
-    right: var(--spacing-156);
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    animation: heroNavFade 1s var(--ease-out-expo) 0.3s both;
-  }
-  .hero-logo img { display: block; }
-  .lang-switch {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--color-text-primary);
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.3s var(--ease-spring);
-  }
-  .lang-switch:hover {
-    background: rgba(255, 255, 255, 0.6);
-    transform: scale(1.12);
   }
   .hero-card {
     position: relative;
@@ -158,22 +117,6 @@ const otherLabel = lang === 'es' ? 'EN' : 'ES';
       padding: 0 16px 32px;
       align-items: flex-end;
       justify-content: center;
-    }
-    .hero-nav {
-      left: 16px;
-      right: 16px;
-      top: 24px;
-    }
-    .hero-logo img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      object-position: left;
-    }
-    .lang-switch {
-      width: 36px;
-      height: 36px;
-      font-size: 12px;
     }
     .hero-card {
       max-width: 100%;

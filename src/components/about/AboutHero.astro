@@ -1,0 +1,179 @@
+---
+import ButtonPrimary from '../Button/ButtonPrimary.astro';
+import Navbar from '../Navbar.astro';
+interface Props { t: typeof import('../../locales/en.json'); lang: string }
+const { t, lang } = Astro.props;
+---
+
+<header class="about-hero">
+  <div class="about-hero-bg-wrap">
+    <img
+      class="about-hero-bg parallax"
+      data-speed="-0.15"
+      src="https://www.figma.com/api/mcp/asset/584a4666-d3ac-4f36-9714-616395f12e86"
+      alt=""
+      width="1512"
+      height="982"
+    />
+  </div>
+  <Navbar t={t} lang={lang} activePage="about" />
+
+  <div class="about-hero-card" id="about-hero-card">
+    <span class="about-hero-tagline">{t.aboutHero.tagline}</span>
+    <div class="about-hero-card-title">
+      <h1 class="font-heading-2">{t.aboutHero.headline}</h1>
+    </div>
+    <p class="about-hero-subtitle">{t.aboutHero.subtitle}</p>
+    <div class="about-hero-divider"></div>
+    <p class="about-hero-description">{t.aboutHero.description}</p>
+    <p class="about-hero-approach">{t.aboutHero.approach}</p>
+    <div class="about-hero-cta">
+      <ButtonPrimary href="#services" label={t.aboutHero.cta} />
+    </div>
+  </div>
+</header>
+
+<style>
+  .about-hero {
+    position: relative;
+    height: 982px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px var(--spacing-156) var(--spacing-80);
+    overflow: hidden;
+  }
+  .about-hero-bg-wrap {
+    position: absolute;
+    inset: -40px;
+    overflow: hidden;
+  }
+  .about-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    animation: heroBgZoom 2.5s var(--ease-out-expo) forwards;
+    transform-origin: center center;
+  }
+
+  /* Frosted glass card — same style as homepage hero */
+  .about-hero-card {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+    padding: var(--spacing-56);
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: var(--radius-32);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-24);
+    align-items: center;
+    text-align: center;
+    animation: aboutCardReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  }
+  .about-hero-tagline {
+    font-family: var(--font-body);
+    font-size: var(--font-heading-6-size);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-brand-magenta);
+    line-height: 1.6;
+  }
+  .about-hero-card-title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+    color: var(--color-text-primary);
+    width: 100%;
+  }
+  .about-hero-card-title h1 {
+    margin: 0;
+  }
+  .about-hero-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--font-body-size);
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    margin: 0;
+    font-weight: 500;
+  }
+  .about-hero-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-brand-magenta), var(--color-orange));
+    border-radius: 2px;
+  }
+  .about-hero-description {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    margin: 0;
+    font-style: italic;
+    opacity: 0.8;
+  }
+  .about-hero-approach {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--color-text-primary);
+    margin: 0;
+    opacity: 0.85;
+  }
+  .about-hero-cta {
+    margin-top: var(--spacing-8);
+  }
+
+  @keyframes aboutCardReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(40px) scale(0.97);
+      filter: blur(6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-hero {
+      height: 812px;
+      padding: 0 16px 32px;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .about-hero-card {
+      max-width: 100%;
+      padding: 32px 24px;
+      gap: var(--spacing-16);
+      border-radius: var(--radius-24);
+    }
+    .about-hero-card-title h1 {
+      font-size: 32px;
+    }
+    .about-hero-tagline {
+      font-size: 16px;
+      letter-spacing: 1.5px;
+    }
+    .about-hero-description,
+    .about-hero-approach {
+      font-size: 14px;
+    }
+  }
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .about-hero {
+      padding: var(--spacing-80) var(--spacing-24) var(--spacing-24);
+      height: auto;
+      min-height: 100vh;
+    }
+    .about-hero-card {
+      max-width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,175 @@
+---
+import ButtonPrimary from '../Button/ButtonPrimary.astro';
+interface Props { t: typeof import('../../locales/en.json') }
+const { t } = Astro.props;
+---
+
+<section class="approach section">
+  <div class="approach-inner">
+    <div class="approach-left">
+      <h2 class="approach-title reveal-blur">{t.aboutApproach.title}</h2>
+      <p class="approach-desc reveal" style="transition-delay: 0.1s">{t.aboutApproach.description}</p>
+      <blockquote class="approach-statement reveal" style="transition-delay: 0.15s">
+        {t.aboutApproach.statement}
+      </blockquote>
+      <!-- Decorative image -->
+      <div class="approach-deco reveal-scale" style="transition-delay: 0.2s">
+        <img
+          src="https://www.figma.com/api/mcp/asset/db5b286a-d7b4-4eb5-94b3-4024bbc45282"
+          alt=""
+          width="460"
+          height="280"
+          loading="lazy"
+          class="approach-deco-img"
+        />
+        <div class="approach-deco-overlay"></div>
+      </div>
+    </div>
+    <div class="approach-right">
+      <h3 class="approach-results-title reveal-blur" style="transition-delay: 0.1s">{t.aboutApproach.resultsTitle}</h3>
+      <ul class="approach-results">
+        {t.aboutApproach.results.map((item: string, i: number) => (
+          <li class="approach-result-item reveal-right" style={`transition-delay: ${0.1 + i * 0.06}s`}>
+            <span class="result-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L12.09 7.26L18 8.27L14 12.14L14.18 18.02L10 15.77L5.82 18.02L6 12.14L2 8.27L7.91 7.26L10 2Z" fill="var(--color-brand-magenta)" opacity="0.15" stroke="var(--color-brand-magenta)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            {item}
+          </li>
+        ))}
+      </ul>
+      <div class="approach-cta reveal" style="transition-delay: 0.5s">
+        <ButtonPrimary href="#services" label={t.aboutApproach.cta} />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .approach {
+    padding-top: var(--spacing-128);
+    padding-bottom: var(--spacing-128);
+    background: linear-gradient(180deg, rgba(166, 3, 93, 0.015) 0%, var(--color-bg-page) 100%);
+  }
+  .approach-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-80);
+    align-items: start;
+  }
+  .approach-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-24);
+  }
+  .approach-title {
+    font-family: var(--font-heading);
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+  .approach-desc {
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.1vw, 17px);
+    line-height: 1.8;
+    color: var(--color-grey-700);
+    margin: 0;
+  }
+  .approach-statement {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.7;
+    color: var(--color-brand-magenta);
+    font-weight: 600;
+    margin: 0;
+    padding: var(--spacing-24);
+    padding-left: var(--spacing-24);
+    border-left: 3px solid var(--color-brand-magenta);
+    background: rgba(166, 3, 93, 0.03);
+    border-radius: 0 var(--radius-24) var(--radius-24) 0;
+  }
+  .approach-deco {
+    position: relative;
+    border-radius: var(--radius-24);
+    overflow: hidden;
+    margin-top: var(--spacing-8);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  }
+  .approach-deco-img {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+  .approach-deco-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(166, 3, 93, 0.08) 100%);
+    pointer-events: none;
+  }
+  .approach-right {
+    display: flex;
+    flex-direction: column;
+  }
+  .approach-results-title {
+    font-family: var(--font-body);
+    font-size: clamp(18px, 1.5vw, 22px);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-24);
+    letter-spacing: 0.5px;
+  }
+  .approach-results {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-32);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .approach-result-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.1vw, 16px);
+    line-height: 1.6;
+    color: var(--color-grey-700);
+    padding: 10px 16px;
+    border-radius: var(--radius-24);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .approach-result-item:hover {
+    background: rgba(166, 3, 93, 0.03);
+    transform: translateX(4px);
+  }
+  .result-icon {
+    flex-shrink: 0;
+    display: flex;
+  }
+  .approach-cta {
+    margin-top: var(--spacing-8);
+  }
+
+  @media (max-width: 768px) {
+    .approach {
+      padding-top: var(--spacing-64);
+      padding-bottom: var(--spacing-64);
+    }
+    .approach-inner {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-40);
+    }
+    .approach-deco-img {
+      height: 180px;
+    }
+  }
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .approach-inner {
+      gap: var(--spacing-40);
+    }
+  }
+</style>

@@ -1,0 +1,175 @@
+---
+interface Props { t: typeof import('../../locales/en.json') }
+const { t } = Astro.props;
+---
+
+<section class="bio section">
+  <div class="bio-inner">
+    <div class="bio-image-col">
+      <div class="bio-image-wrap reveal-3d">
+        <div class="bio-image img-hover-zoom">
+          <img
+            src="https://www.figma.com/api/mcp/asset/0df5dc2c-a6e1-4990-b55b-e76e0715960d"
+            alt="Agnieszka Fronia"
+            width="480"
+            height="600"
+            loading="lazy"
+          />
+        </div>
+        <div class="bio-image-frame" aria-hidden="true"></div>
+      </div>
+      <!-- Floating credentials card -->
+      <div class="bio-credentials-float reveal-scale" style="transition-delay: 0.4s">
+        <h3 class="credentials-title">{t.aboutBio.credentialsTitle}</h3>
+        <ul class="credentials-list">
+          {t.aboutBio.credentials.map((item: string) => (
+            <li class="credentials-item">
+              <span class="credentials-bullet" aria-hidden="true"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="bio-content">
+      <h2 class="bio-title reveal-blur">{t.aboutBio.title}</h2>
+      <p class="bio-intro reveal" style="transition-delay: 0.1s">{t.aboutBio.intro}</p>
+      <p class="bio-text reveal" style="transition-delay: 0.15s">{t.aboutBio.p1}</p>
+      <p class="bio-text reveal" style="transition-delay: 0.2s">{t.aboutBio.p2}</p>
+      <p class="bio-text reveal" style="transition-delay: 0.25s">{t.aboutBio.p3}</p>
+      <p class="bio-text reveal" style="transition-delay: 0.3s">{t.aboutBio.p4}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bio {
+    padding-top: var(--spacing-128);
+    padding-bottom: var(--spacing-128);
+    background: linear-gradient(180deg, var(--color-bg-page) 0%, rgba(246, 142, 61, 0.02) 100%);
+  }
+  .bio-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: var(--spacing-80);
+    align-items: start;
+  }
+  .bio-image-col {
+    position: sticky;
+    top: 120px;
+  }
+  .bio-image-wrap {
+    position: relative;
+    border-radius: var(--radius-32);
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(166, 3, 93, 0.1);
+  }
+  .bio-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  .bio-image-frame {
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgba(166, 3, 93, 0.08);
+    border-radius: var(--radius-32);
+    pointer-events: none;
+  }
+  .bio-credentials-float {
+    margin-top: var(--spacing-24);
+    padding: var(--spacing-24);
+    background: white;
+    border-radius: var(--radius-24);
+    border: 1px solid rgba(166, 3, 93, 0.08);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  }
+  .credentials-title {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-16);
+    letter-spacing: 0.5px;
+  }
+  .credentials-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .credentials-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-grey-700);
+  }
+  .credentials-bullet {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-brand-magenta);
+  }
+  .bio-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+  }
+  .bio-title {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.5vw, 41px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-8);
+  }
+  .bio-intro {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    font-weight: 600;
+    margin: 0;
+  }
+  .bio-text {
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.1vw, 16px);
+    line-height: 1.8;
+    color: var(--color-grey-700);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .bio {
+      padding-top: var(--spacing-64);
+      padding-bottom: var(--spacing-64);
+    }
+    .bio-inner {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-32);
+    }
+    .bio-image-col {
+      position: static;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    .bio-credentials-float {
+      padding: var(--spacing-16);
+    }
+  }
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .bio-inner {
+      grid-template-columns: 340px 1fr;
+      gap: var(--spacing-40);
+    }
+  }
+</style>

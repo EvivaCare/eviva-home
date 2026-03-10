@@ -3,6 +3,11 @@
     "title": "Oviva Care – Webinar Salud Hormonal",
     "description": "Reserva tu plaza en el webinar de salud hormonal para mujeres. Mejora tu energía y tu estado de ánimo."
   },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "menu": "Menú"
+  },
   "hero": {
     "question": "¿Te sientes cansada, con hambre, niebla mental, ansiedad y antojos de azúcar todo el tiempo?",
     "joinLive": "ÚNETE EN VIVO",
@@ -78,9 +83,146 @@
   },
   "footer": {
     "contactUs": "Contáctanos",
-    "copyright": "© 2024 Oviva Care. Todos los derechos reservados.",
+    "copyright": "\u00a9 2024 Oviva Care. Todos los derechos reservados.",
     "privacy": "Privacidad",
     "terms": "Términos y condiciones",
     "cookies": "Cookies"
+  },
+  "aboutMeta": {
+    "title": "Sobre mí y Trabaja conmigo – Agnieszka Fronia",
+    "description": "Psicóloga de Salud Femenina. Apoyo a mujeres que se sienten abrumadas, ansiosas, agotadas o desconectadas de sí mismas."
+  },
+  "aboutHero": {
+    "tagline": "Psicóloga de Salud Femenina",
+    "headline": "Mereces sentirte completa de nuevo",
+    "subtitle": "Apoyo a mujeres que se sienten abrumadas, ansiosas, agotadas o desconectadas de sí mismas.",
+    "description": "Este es un espacio tranquilo y seguro donde tus síntomas se toman en serio.",
+    "approach": "Sana tu ansiedad, ataques de pánico y síntomas relacionados con las hormonas a través de un enfoque basado en la ciencia y compasivo que respeta tu sistema nervioso y tu experiencia vivida.",
+    "cta": "Reserva una llamada gratuita"
+  },
+  "aboutSymptoms": {
+    "title": "No te estás imaginando tus síntomas",
+    "intro": "Si estás aquí, puede que te hayan dicho que tus análisis son \"normales\", pero aún experimentas:",
+    "items": [
+      "Ansiedad o ataques de pánico",
+      "Cambios de humor, irritabilidad o desbordamiento emocional",
+      "Fatiga, niebla mental o problemas de sueño",
+      "Síntomas que empeoran alrededor de tu ciclo",
+      "Síntomas conectados con tu transición a la perimenopausia",
+      "La sensación de que tu cuerpo trabaja en tu contra"
+    ]
+  },
+  "aboutApproach": {
+    "title": "Una forma diferente de trabajar la ansiedad y la salud mental",
+    "description": "A muchas mujeres se les ofrece terapia psicológica sin apoyo hormonal. Sin embargo, el sistema nervioso, el equilibrio hormonal y la salud emocional están profundamente interconectados.",
+    "statement": "Estos síntomas son reales y merecen una comprensión más profunda e integrada.",
+    "resultsTitle": "Las mujeres que trabajan conmigo suelen empezar a experimentar:",
+    "results": [
+      "Menos ataques de pánico",
+      "Mejor regulación emocional",
+      "Mejor sueño y energía",
+      "Mayor comprensión de sus patrones hormonales",
+      "Sentirse más tranquilas y con más control de su cuerpo",
+      "Mayor confianza para manejar el estrés y la ansiedad",
+      "Sentirse comprendidas y apoyadas en lugar de ignoradas"
+    ],
+    "cta": "Reserva una llamada gratuita"
+  },
+  "aboutPillars": {
+    "title": "Cómo se siente trabajar conmigo",
+    "pillars": [
+      {
+        "number": "01",
+        "title": "Terapia Psicológica",
+        "description": "Como psicóloga, proporciono herramientas basadas en evidencia para la ansiedad, ataques de pánico, regulación emocional y estrés. Trabajamos a un ritmo que respeta tu sistema nervioso, ayudándolo a salir del modo de supervivencia crónico."
+      },
+      {
+        "number": "02",
+        "title": "Salud Hormonal y Funcional",
+        "description": "Evalúo si los desequilibrios hormonales pueden estar contribuyendo a tus síntomas, con especial atención a las hormonas tiroideas, suprarrenales y sexuales y su relación con la ansiedad, el estado de ánimo, los niveles de energía y el sueño."
+      },
+      {
+        "number": "03",
+        "title": "Interpretación de Análisis",
+        "description": "Si tienes resultados de análisis existentes, te ayudo a entender qué significan en el contexto de tus síntomas, circunstancias vitales y etapa hormonal para que la información sea útil en lugar de abrumadora."
+      },
+      {
+        "number": "04",
+        "title": "Protocolos Personalizados",
+        "description": "Basándome en tu presentación individual, desarrollo protocolos claros y realistas que pueden incluir ajustes de estilo de vida, orientación nutricional, prácticas del sistema nervioso y estrategias de apoyo."
+      }
+    ],
+    "note": "Este no es un enfoque único para todas. Todo el apoyo es personalizado."
+  },
+  "aboutBio": {
+    "title": "Sobre mí",
+    "intro": "Hola, soy Agnieszka Fronia, psicóloga especializada en salud hormonal femenina y regulación del sistema nervioso.",
+    "p1": "Ayudo a mujeres que se sienten abrumadas, ansiosas, agotadas o desconectadas de su cuerpo a recuperar la confianza, la estabilidad emocional y la sensación de control. Mi trabajo combina terapia psicológica, conocimiento de salud hormonal y regulación del sistema nervioso para que puedas entender las causas raíz de tus síntomas, no solo gestionarlos.",
+    "p2": "Con un máster en medicina psicológica y salud mental, integro conocimientos de psicología, neuroendocrinología y medicina del estilo de vida para proporcionar un enfoque claro y basado en la ciencia que también es compasivo y práctico.",
+    "p3": "Creo espacios seguros y de apoyo donde las mujeres pueden tener conversaciones honestas sobre temas a menudo considerados tabú, incluyendo ansiedad, ataques de pánico, menopausia, perimenopausia, dolor menstrual, aborto espontáneo, FIV y otros desafíos hormonales o emocionales.",
+    "p4": "Juntas, exploramos lo que tu cuerpo y tu mente intentan decirte y desarrollamos estrategias personalizadas que te ayudan a sentirte más tranquila, más clara y con más control.",
+    "credentialsTitle": "Formación Profesional",
+    "credentials": [
+      "Máster en Medicina Psicológica y Salud Mental",
+      "Certificada en salud hormonal femenina",
+      "Enfoque integrativo de regulación del sistema nervioso",
+      "Experiencia apoyando a mujeres con ansiedad y transiciones hormonales"
+    ]
+  },
+  "aboutServices": {
+    "title": "Servicios y Precios",
+    "therapyTitle": "Terapia Integrativa 1:1",
+    "therapySubtitle": "Para mujeres que desean apoyo personalizado y profundo para la ansiedad, ataques de pánico y síntomas relacionados con las hormonas.",
+    "therapyDescription": "Este es un trabajo continuo 1:1 que integra terapia psicológica con apoyo hormonal y del sistema nervioso.",
+    "therapyIncludes": "Qué incluye:",
+    "therapyItems": [
+      "Terapia psicológica con una psicóloga de salud femenina",
+      "Apoyo para ansiedad y ataques de pánico",
+      "Regulación y estabilización del sistema nervioso",
+      "Protocolos personalizados de estilo de vida y apoyo",
+      "Orientación continua y ajustes según responde tu cuerpo"
+    ],
+    "therapyNote": "Las sesiones son estructuradas, tranquilas y adaptadas al ritmo de tu sistema nervioso.",
+    "singleTitle": "Sesión Individual",
+    "singleDuration": "60 minutos",
+    "singlePrice": "\u20ac120",
+    "singleNote": "Adecuada para clientas existentes o apoyo a corto plazo.",
+    "monthlyTitle": "Apoyo 1 Mes",
+    "monthlyPrice": "\u20ac440",
+    "monthlyPer": "por mes",
+    "monthlyIncludes": [
+      "4 semanas de sesiones 1:1 (60 minutos)",
+      "Apoyo por email o mensaje entre sesiones",
+      "Interpretación de análisis (si aplica)",
+      "Ajustes continuos del protocolo"
+    ],
+    "quarterlyTitle": "Programa de Apoyo 3 Meses",
+    "quarterlyPrice": "\u20ac1.260",
+    "quarterlyPer": "\u20ac420/mes",
+    "quarterlyIncludes": [
+      "12 semanas de sesiones 1:1 (60 minutos)",
+      "Apoyo por email o mensaje entre sesiones",
+      "Evaluación hormonal y del sistema nervioso",
+      "Interpretación de análisis (si aplica)",
+      "Protocolos totalmente personalizados",
+      "Apoyo emocional y terapéutico continuo"
+    ],
+    "quarterlyNote": "Esta opción permite un cambio más profundo y sostenible y se recomienda para ansiedad, ataques de pánico y transiciones hormonales como la perimenopausia.",
+    "quarterlyCta": "Trabaja conmigo 1:1",
+    "labTitle": "Sesiones de Revisión de Análisis",
+    "labSubtitle": "Para mujeres que desean interpretación profesional de sus resultados de análisis y pasos claros a seguir.",
+    "labDescription": "Esta sesión suele ser el mejor punto de partida para mujeres que se sienten confundidas sobre sus síntomas, resultados de análisis o cambios hormonales.",
+    "labIncludes": [
+      "Revisión de análisis existentes (tiroides, suprarrenales, hormonas sexuales, etc.)",
+      "Explicación de resultados en lenguaje claro y comprensible",
+      "Conexión entre patrones hormonales y síntomas mentales/emocionales",
+      "Recomendaciones claras y realistas para los próximos pasos"
+    ],
+    "labDuration": "Sesión de 90 minutos",
+    "labPrice": "\u20ac180",
+    "notSure": "¿No sabes qué opción es la adecuada para ti?",
+    "notSureDescription": "Una llamada de claridad nos permite hablar sobre tus síntomas y explorar el tipo de apoyo más apropiado.",
+    "notSureCta": "Reserva una llamada gratuita",
+    "recommended": "Recomendado"
   }
 }

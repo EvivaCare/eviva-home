@@ -229,3 +229,79 @@ a.btn-primary:active, .btn-primary:active {
 .img-hover-zoom:hover img {
   transform: scale(1.04);
 }
+
+/* ─── Apple-style gradient text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-brand-magenta) 0%, var(--color-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Stagger children animation ─── */
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+[data-stagger] > *.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Tilt card base ─── */
+[data-tilt] {
+  transition: transform 0.15s ease;
+  will-change: transform;
+}
+
+/* ─── Line draw animation ─── */
+@keyframes lineDraw {
+  from { width: 0; }
+  to { width: 60px; }
+}
+.line-draw {
+  animation: lineDraw 0.8s var(--ease-out-expo) 0.5s both;
+}
+
+/* ─── Shimmer shine effect ─── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-text-primary) 0%,
+    var(--color-brand-magenta) 25%,
+    var(--color-orange) 50%,
+    var(--color-brand-magenta) 75%,
+    var(--color-text-primary) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ─── Pulse glow ─── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(166, 3, 93, 0.15); }
+  50% { box-shadow: 0 0 0 12px rgba(166, 3, 93, 0); }
+}
+.pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* ─── Reduced motion preference ─── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur, .reveal-3d,
+  [data-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
