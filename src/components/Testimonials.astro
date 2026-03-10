@@ -1,0 +1,151 @@
+---
+interface Props { t: typeof import('../locales/en.json') }
+const { t } = Astro.props;
+const testimonials = [
+  { quote: t.testimonials.lauraQuote, name: t.testimonials.lauraName, avatar: 'https://www.figma.com/api/mcp/asset/31c87cc6-3493-4108-b2e2-8fb33d4f6a6e' },
+  { quote: t.testimonials.manuelaQuote, name: t.testimonials.manuelaName, avatar: 'https://www.figma.com/api/mcp/asset/02a0643d-5072-4dc7-a2a6-ead9f5d1e057' },
+  { quote: (t.testimonials as Record<string, string>).patrycjaQuote, name: (t.testimonials as Record<string, string>).patrycjaName, avatar: 'https://www.figma.com/api/mcp/asset/5bfe7d54-5712-4a62-8c2b-3a5fe16e1a5d' },
+];
+---
+
+<section class="testimonials-section">
+  <div class="testimonials-inner section">
+    <h2 class="font-heading-1 reveal-blur" style="margin: 0">{t.testimonials.title}</h2>
+    <div class="testimonials-scroll" id="testimonials-scroll">
+      <div class="testimonials-track" id="testimonials-track">
+        {testimonials.map((item, i) => (
+          <article class="testimonial-card reveal-scale" style={`transition-delay: ${0.15 + i * 0.2}s`}>
+            <div class="testimonial-avatar">
+              <img src={item.avatar} alt={item.name} width="176" height="176" loading="lazy" />
+            </div>
+            <p class="testimonial-quote" aria-hidden="true">"</p>
+            <div class="testimonial-body">
+              <p class="testimonial-text">{item.quote}</p>
+              <p class="testimonial-name">{item.name}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const scroll = document.getElementById('testimonials-scroll');
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  if (scroll && !isMobile) {
+    let dir = 1;
+    let paused = false;
+    let velocity = 0.4;
+    scroll.addEventListener('mouseenter', () => paused = true);
+    scroll.addEventListener('mouseleave', () => paused = false);
+    scroll.addEventListener('touchstart', () => paused = true, { passive: true });
+    scroll.addEventListener('touchend', () => paused = false);
+
+    // Drag to scroll
+    let isDragging = false;
+    let startX = 0;
+    let scrollStart = 0;
+    scroll.addEventListener('mousedown', (e) => {
+      isDragging = true; startX = e.pageX; scrollStart = scroll.scrollLeft;
+      scroll.style.cursor = 'grabbing';
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const dx = e.pageX - startX;
+      scroll.scrollLeft = scrollStart - dx;
+    });
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+      scroll.style.cursor = 'grab';
+    });
+    scroll.style.cursor = 'grab';
+
+    function autoScroll() {
+      if (!paused && !isDragging && scroll) {
+        const maxScroll = scroll.scrollWidth - scroll.clientWidth;
+        if (scroll.scrollLeft >= maxScroll - 1) dir = -1;
+        if (scroll.scrollLeft <= 0) dir = 1;
+        scroll.scrollLeft += dir * velocity;
+      }
+      requestAnimationFrame(autoScroll);
+    }
+    requestAnimationFrame(autoScroll);
+  }
+</script>
+
+<style>
+  .testimonials-section { width: 100%; overflow: hidden; }
+  .testimonials-inner {
+    max-width: 1512px; margin: 0 auto;
+    padding-top: var(--spacing-80); padding-bottom: var(--spacing-80);
+    display: flex; flex-direction: column; gap: var(--spacing-40);
+  }
+  .testimonials-scroll {
+    overflow-x: auto; overflow-y: visible;
+    padding-top: 128px; padding-bottom: var(--spacing-32);
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+    user-select: none;
+  }
+  .testimonials-scroll::-webkit-scrollbar { display: none; }
+  .testimonials-track { display: flex; gap: var(--spacing-24); width: max-content; }
+  .testimonial-card {
+    flex: 0 0 588px; position: relative;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: var(--spacing-16); background: var(--color-orange-10);
+    border-radius: var(--radius-32); padding: 156px var(--spacing-24) var(--spacing-24);
+    transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+  }
+  .testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(246, 142, 61, 0.12);
+  }
+  .testimonial-quote {
+    margin: 0; font-family: var(--font-body); font-size: 40px; font-weight: 900;
+    color: var(--color-accent-orange); line-height: 0.8; letter-spacing: 2px;
+  }
+  .testimonial-body { flex: 1; display: flex; flex-direction: column; gap: var(--spacing-32); width: 100%; }
+  .testimonial-text {
+    margin: 0; font-family: var(--font-body); font-size: var(--font-heading-6-size);
+    font-weight: 400; color: var(--color-text-primary); letter-spacing: 1px; line-height: 1.6;
+  }
+  .testimonial-name {
+    margin: 0; font-family: var(--font-body); font-size: var(--font-heading-6-size);
+    font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 1.6;
+  }
+  .testimonial-avatar {
+    position: absolute; top: -112px; left: 50%; transform: translateX(-50%);
+    width: 224px; height: 224px; border-radius: 999px;
+    background: var(--color-grey-white); display: flex; align-items: center;
+    justify-content: center; overflow: hidden;
+    transition: transform 0.5s var(--ease-spring);
+  }
+  .testimonial-card:hover .testimonial-avatar { transform: translateX(-50%) scale(1.05); }
+  .testimonial-avatar img { width: 176px; height: 176px; object-fit: cover; border-radius: 50%; }
+  @media (max-width: 768px) {
+    .testimonials-inner { padding-left: 16px; padding-right: 16px; }
+    .testimonials-scroll {
+      overflow-x: visible; overflow-y: visible;
+      padding-top: 96px; padding-bottom: 0;
+    }
+    .testimonials-track {
+      flex-direction: column; width: 100%; gap: 96px;
+    }
+    .testimonial-card {
+      flex: none; width: 100%;
+      padding: 96px 16px 24px;
+    }
+    .testimonial-avatar { width: 128px; height: 128px; top: -64px; }
+    .testimonial-avatar img { width: 104px; height: 104px; }
+    .testimonial-text { font-size: 16px; letter-spacing: 1px; }
+    .testimonial-name { font-size: 16px; }
+    .testimonial-quote { font-size: 28px; }
+  }
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .testimonial-card { flex: 0 0 320px; padding: 120px var(--spacing-16) var(--spacing-16); }
+    .testimonial-avatar { width: 160px; height: 160px; top: -80px; }
+    .testimonial-avatar img { width: 128px; height: 128px; }
+    .testimonials-scroll { padding-top: 80px; }
+  }
+</style>

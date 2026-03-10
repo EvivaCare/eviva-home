@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "Oviva Care – Webinar Salud Hormonal",
+    "description": "Reserva tu plaza en el webinar de salud hormonal para mujeres. Mejora tu energía y tu estado de ánimo."
+  },
+  "hero": {
+    "question": "¿Te sientes cansada, con hambre, niebla mental, ansiedad y antojos de azúcar todo el tiempo?",
+    "joinLive": "ÚNETE EN VIVO",
+    "webinarTitle": "WEBINAR DE SALUD HORMONAL PARA MUJERES",
+    "headline": "Mejora tu estado de ánimo y recupera tu energía",
+    "date": "10 septiembre 2024 12:00 - 13:00 CET",
+    "saveSpot": "Reserva tu plaza"
+  },
+  "countdown": {
+    "title": "El webinar empieza en",
+    "days": "días",
+    "hours": "horas",
+    "minutes": "minutos",
+    "saveSpot": "Reserva tu plaza"
+  },
+  "feeling": {
+    "titleLine1": "¿Te sientes",
+    "titleLine2": "así?",
+    "items": [
+      { "strong": "Agotada", "text": "sin importar cuánto duermas?" },
+      { "strong": "Cabeza nublada", "text": "y sin poder concentrarte?" },
+      { "strong": "Hambre", "text": "poco después de comer?" },
+      { "strong": "Ansiosa", "text": "y al límite?" },
+      { "strong": "Antojos de azúcar", "text": "todo el tiempo?" }
+    ]
+  },
+  "dive": {
+    "title": "Qué veremos:",
+    "item1Title": "Entender los síntomas:",
+    "item1Desc": "Causas de fatiga, niebla mental, ansiedad, sueño y antojos de azúcar.",
+    "item2Title": "Consejos prácticos:",
+    "item2Desc": "Estrategias sencillas para la niebla mental, el foco y los síntomas.",
+    "item3Title": "Causas y soluciones:",
+    "item3Desc": "Qué alimenta tu ansiedad y problemas de sueño y qué hacer.",
+    "item4Title": "Cambios hormonales:",
+    "item4Desc": "Cómo afectan las hormonas a estos síntomas.",
+    "item5Title": "Equilibrar hormonas:",
+    "item5Desc": "Formas de equilibrar hormonas y reducir antojos de azúcar.",
+    "item6Title": "Apoyo en comunidad:",
+    "item6Desc": "Conecta con otras mujeres y comparte experiencias.",
+    "saveSpot": "Reserva tu plaza"
+  },
+  "speaker": {
+    "title": "Conoce a la ponente",
+    "name": "Agnieszka Fronia",
+    "bio1": "Hola, soy Agnieszka, experta certificada en salud de la mujer con pasión por ayudar a otras.",
+    "bio2": "Durante años sufrí problemas hormonales: acné, caída de cabello, aumento de peso, ausencia de regla, insomnio y mucho estrés y ansiedad. Decidí tomar las riendas de mi salud.",
+    "bio3": "Desde 2015 he viajado por Sudamérica e India explorando métodos para mejorar mis síntomas. Soy profesora certificada de yoga, meditación y respiración.",
+    "bio4": "Tengo un máster en Medicina Psicológica y Salud Mental por la London Metropolitan University, relacionado con hormonas, inflamación y salud intestinal.",
+    "bio5": "Mi objetivo es ayudarte con tu salud hormonal, física, psicológica y emocional.",
+    "bio6": "Únete al webinar para conocernos y ganar el conocimiento que necesitas."
+  },
+  "oviva": {
+    "title": "Qué es Oviva Care",
+    "mission": "Nuestra misión es crear un futuro donde cada mujer tenga Conocimiento, Recursos y Apoyo.",
+    "placeholder": "Pellentesque non tincidunt eget molestie libero. Aenean ut quis adipiscing amet.",
+    "cta": "¡PARA VIVIR SU MEJOR VIDA!"
+  },
+  "testimonials": {
+    "title": "Qué dicen las participantes",
+    "lauraQuote": "Sesión muy resonante, buen equilibrio entre teoría y práctica. Muy práctico y fácil de integrar. Creo que el mundo hormonal es muy desconocido e influyente, por lo que creo que hacen falta más webinars así.",
+    "lauraName": "Laura",
+    "manuelaQuote": "En Agnieszka encontré profesionalidad y humanidad, sin juicio. SIN NINGÚN PLAN PREESTABLECIDO. Me acompañó con un programa personalizado basado en mis síntomas. Aprendí a cuidar mis pensamientos, mis espacios, mi rutina diaria y todo esto está teniendo un impacto enorme en mi vida.",
+    "manuelaName": "Manuela",
+    "patrycjaQuote": "Me diagnosticaron SOP hace unos años. Fue Agnieszka quien me llamó la atención para hacerme pruebas cuando le conté cómo me sentía y cuáles eran mis síntomas. Gracias a ella soy mucho más consciente de la dirección que debo tomar. Estoy al principio de este camino, porque recientemente dejé de tomar anticonceptivos. Creo que con su ayuda alcanzaré mi objetivo de salud.",
+    "patrycjaName": "Patrycja"
+  },
+  "cta": {
+    "signUp": "Regístrate ahora",
+    "webinarDay": "Día del webinar 10 septiembre 2024",
+    "headline": "Mejora tu estado de ánimo y recupera tu energía",
+    "saveSpot": "Reserva tu plaza"
+  },
+  "footer": {
+    "contactUs": "Contáctanos",
+    "copyright": "© 2024 Oviva Care. Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos y condiciones",
+    "cookies": "Cookies"
+  }
+}

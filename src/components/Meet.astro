@@ -1,0 +1,56 @@
+---
+interface Props { t: typeof import('../locales/en.json') }
+const { t } = Astro.props;
+const s = t.speaker;
+---
+
+<section class="meet-section">
+  <div class="meet-inner">
+    <div class="meet-image reveal-left img-hover-zoom">
+      <img class="parallax" data-speed="0.08" src="https://www.figma.com/api/mcp/asset/0df5dc2c-a6e1-4990-b55b-e76e0715960d" alt={s.name} loading="lazy" />
+    </div>
+    <div class="meet-content">
+      <h2 class="font-heading-1 reveal-blur">{(s as { titleLine1?: string; titleLine2?: string }).titleLine1 ?? 'Meet our'}<br />{(s as { titleLine2?: string }).titleLine2 ?? 'speaker'}</h2>
+      <p class="font-heading-4 reveal" style="letter-spacing: 2.9px; text-transform: uppercase; margin: 0; transition-delay: 0.15s">{s.name}</p>
+      <div class="font-body speaker-bio reveal" style="transition-delay: 0.3s">
+        <p>{s.bio1}</p>
+        <p>{s.bio2}</p>
+        <p>{s.bio3}</p>
+        <p>{s.bio4}</p>
+        <p>{s.bio5}</p>
+        <p>{s.bio6}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .meet-section { width: 100%; overflow: hidden; }
+  .meet-inner {
+    max-width: 1512px; margin: 0 auto;
+    display: flex; align-items: stretch; justify-content: space-between;
+    padding: var(--spacing-80) 0; padding-right: var(--spacing-156);
+  }
+  .meet-image {
+    flex: 0 0 743px;
+    border-radius: 0 var(--radius-32) var(--radius-32) 0;
+    overflow: hidden; position: relative;
+  }
+  .meet-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .meet-content { flex: 0 0 500px; display: flex; flex-direction: column; gap: var(--spacing-40); }
+  .meet-content h2 { margin: 0; }
+  .speaker-bio p { margin: 0 0 1em; }
+  .speaker-bio p:last-child { margin-bottom: 0; }
+  @media (max-width: 768px) {
+    .meet-inner { flex-direction: column-reverse; padding-left: 16px; padding-right: 16px; gap: var(--spacing-32); }
+    .meet-content { flex: none; max-width: 100%; }
+    .meet-content h2 { font-size: 46px; }
+    .meet-image { flex: none; width: 100%; height: 343px; border-radius: var(--radius-32); min-height: unset; }
+    .speaker-bio { font-size: 16px; }
+  }
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .meet-inner { flex-direction: column; padding-left: var(--spacing-24); padding-right: var(--spacing-24); gap: var(--spacing-40); }
+    .meet-content { flex: none; max-width: 100%; }
+    .meet-image { flex: none; width: 100%; border-radius: var(--radius-32); min-height: 300px; }
+  }
+</style>

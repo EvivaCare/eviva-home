@@ -1,0 +1,79 @@
+---
+import ButtonPrimary from './Button/ButtonPrimary.astro';
+interface Props { t: typeof import('../locales/en.json') }
+const { t } = Astro.props;
+const d = t.dive;
+const items = [
+  { title: d.item1Title, desc: d.item1Desc },
+  { title: d.item2Title, desc: d.item2Desc },
+  { title: d.item3Title, desc: d.item3Desc },
+  { title: d.item4Title, desc: d.item4Desc },
+  { title: d.item5Title, desc: d.item5Desc },
+  { title: d.item6Title, desc: d.item6Desc },
+];
+---
+
+<section class="section section-dive">
+  <div class="dive-header">
+    <h2 class="font-heading-1 reveal-blur" style="margin: 0; max-width: 500px">{(d as { titleLine1?: string; titleLine2?: string }).titleLine1 ?? "What we'll"}<br />{(d as { titleLine2?: string }).titleLine2 ?? 'dive into:'}</h2>
+  </div>
+  <div class="dive-grid">
+    {items.map((item, i) => (
+      <article class={`dive-card ${i % 2 === 0 ? 'reveal-left' : 'reveal-right'}`} style={`transition-delay: ${0.1 * i}s`} data-tilt>
+        <div class="bullet-number" aria-hidden="true">
+          <svg class="bullet-blob-svg" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M47.5 10C62 8 80 16 86 32C92 48 84 70 72 80C60 90 36 92 22 82C8 72 4 52 10 36C16 20 33 12 47.5 10Z" fill="var(--color-orange)" opacity="0.15" stroke="var(--color-orange)" stroke-width="1.5" stroke-opacity="0.3"/>
+          </svg>
+          <span class="bullet-num-text">{i + 1}</span>
+        </div>
+        <div class="dive-card-text">
+          <h3 class="font-heading-6" style="text-transform: uppercase; margin: 0">{item.title}</h3>
+          <p class="dive-card-desc">{item.desc}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+  <div class="reveal" style="display: flex; justify-content: center; transition-delay: 0.6s">
+    <ButtonPrimary href="#register" label={d.saveSpot} />
+  </div>
+</section>
+
+<style>
+  .section-dive {
+    padding-top: var(--spacing-80); padding-bottom: var(--spacing-80);
+    display: flex; flex-direction: column; gap: var(--spacing-64); align-items: flex-start;
+  }
+  .dive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--radius-24) var(--spacing-80); width: 100%; }
+  .dive-card {
+    display: flex; gap: var(--radius-24); align-items: flex-start;
+    padding: var(--spacing-16); border-radius: var(--radius-24);
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.5s var(--ease-out-expo);
+  }
+  .dive-card:hover {
+    background: rgba(246, 142, 61, 0.05);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    transform: translateY(-4px);
+  }
+  .bullet-number { width: 96px; height: 96px; min-width: 96px; position: relative; display: flex; align-items: center; justify-content: center; }
+  .bullet-blob-svg { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform 0.6s var(--ease-spring); }
+  .dive-card:hover .bullet-blob-svg { transform: rotate(12deg) scale(1.1); }
+  .bullet-num-text {
+    position: relative; font-family: var(--font-body); font-size: 72px; font-weight: 700;
+    color: var(--color-accent-orange); line-height: 1.8; letter-spacing: -0.792px;
+  }
+  .dive-card-text { flex: 1; display: flex; flex-direction: column; gap: var(--spacing-24); padding-top: var(--spacing-32); line-height: 1.6; }
+  .dive-card-desc {
+    margin: 0; font-family: var(--font-body); font-size: var(--font-heading-6-size);
+    font-weight: 400; color: rgba(0,0,0,0.8); letter-spacing: 2px; line-height: 1.6;
+  }
+  @media (max-width: 768px) {
+    .dive-grid { grid-template-columns: 1fr; gap: var(--spacing-16); }
+    .section-dive { padding-top: var(--spacing-40); padding-bottom: var(--spacing-40); gap: var(--spacing-32); }
+    .bullet-number { width: 80px; height: 80px; min-width: 80px; }
+    .bullet-num-text { font-size: 64px; }
+    .dive-card { padding: var(--spacing-8); gap: var(--spacing-16); }
+    .dive-card-text { padding-top: var(--spacing-16); gap: var(--spacing-16); }
+    .dive-card-desc { font-size: 16px; letter-spacing: 1px; }
+  }
+  @media (min-width: 769px) and (max-width: 1200px) { .dive-grid { grid-template-columns: 1fr; } }
+</style>

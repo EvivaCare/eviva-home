@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "Oviva Care – Women's Hormonal Health Webinar",
+    "description": "Save your spot at the women's hormonal health webinar. Boost your mood and get back your energy."
+  },
+  "hero": {
+    "question": "You feel tired, hungry, foggy, anxious, and you crave for sugar all the time?",
+    "joinLive": "JOIN LIVE",
+    "webinarTitle": "WOMEN'S HORMONAL HEALTH WEBINAR",
+    "headline": "Boost Your Mood & Get Back Your Energy",
+    "date": "10th September 2024 12 PM - 1 PM CET",
+    "saveSpot": "Save your spot"
+  },
+  "countdown": {
+    "title": "Webinar starts in",
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes",
+    "saveSpot": "Save your spot"
+  },
+  "feeling": {
+    "titleLine1": "Are you",
+    "titleLine2": "feeling:",
+    "items": [
+      { "strong": "Exhausted", "text": "no matter how much you sleep?" },
+      { "strong": "Foggy-headed", "text": "and unable to focus?" },
+      { "strong": "Hungry", "text": "shortly after eating?" },
+      { "strong": "Anxious", "text": "and on edge?" },
+      { "strong": "Craving sugar", "text": "all the time?" }
+    ]
+  },
+  "dive": {
+    "title": "What we'll dive into:",
+    "item1Title": "Understanding the Symptoms:",
+    "item1Desc": "Explore the causes of fatigue, brain-fog, anxiety, sleep issues, and sugar cravings.",
+    "item2Title": "Practical Tips:",
+    "item2Desc": "Gain simple, everyday strategies to combat brain fog, improve focus, and manage symptoms.",
+    "item3Title": "Root Causes and Solutions:",
+    "item3Desc": "Identify what's contributing to your anxiety and sleep problems and get actionable solutions.",
+    "item4Title": "Hormonal Shifts:",
+    "item4Desc": "Learn how hormonal changes affect these symptoms and what's really going on in your body.",
+    "item5Title": "Balancing Hormones:",
+    "item5Desc": "Discover ways to balance your hormones and curb your sugar cravings.",
+    "item6Title": "Community Support:",
+    "item6Desc": "Connect with other women facing similar challenges and share experiences.",
+    "saveSpot": "Save your spot"
+  },
+  "speaker": {
+    "title": "Meet our speaker",
+    "name": "Agnieszka Fronia",
+    "bio1": "Hi, I am Agnieszka and I am certified women's health expert with passion for helping others.",
+    "bio2": "For many years, I struggled with hormonal health issues such as acne, hair loss, weight gain, absence of periods, insomnia, and high levels of stress and anxiety. I decided to take control of my health.",
+    "bio3": "Since 2015, I've travelled across South America and India, exploring various methods to resolve my symptoms. I became a certified yoga, meditation, and breath-work teacher.",
+    "bio4": "I earned an MSc in Psychological Medicine and Mental Health from London Metropolitan University, related to hormones, inflammation and gut health.",
+    "bio5": "My goal is to help you navigate your hormonal, physical, psychological, and emotional health with ease.",
+    "bio6": "Join my upcoming webinar so we can get to know each other better and gain the knowledge you need to take control of your health."
+  },
+  "oviva": {
+    "title": "What is Oviva Care",
+    "mission": "Our mission is to create a future where every woman has the Knowledge, Resources and Support.",
+    "placeholder": "Pellentesque non tincidunt eget molestie libero. Aenean ut quis adipiscing amet.",
+    "cta": "TO LIVE HER BEST LIFE!"
+  },
+  "testimonials": {
+    "title": "What people are saying",
+    "lauraQuote": "Very resonating session with a good balance for theory and practice. Very practical and easy to integrate. I think the hormonal world is a very unknown and influential world, so I believe more webinars like this are needed more often.",
+    "lauraName": "Laura",
+    "manuelaQuote": "In Agnieszka I found a professional and at the same time human curiosity - devoid of any form of judgment. NO ANY PRE-SET PLAN. Agnieszka supported me through a customized program based on my symptoms. I learnt to take care of my thoughts, my spaces, my daily routine and all of this is having such a profound impact on my whole life!",
+    "manuelaName": "Manuela",
+    "patrycjaQuote": "I was diagnosed with PCOS a few years ago. It was Agnieszka who drew my attention to test myself in this direction when I told her how I felt and what my symptoms were. Thanks to her, I am definitely more aware of the direction in which I should be going. I am only at the beginning of this road, because I have recently decided to stop taking birth control. I believe that with her help I will achieve my health goal.",
+    "patrycjaName": "Patrycja"
+  },
+  "cta": {
+    "signUp": "Sign up now",
+    "webinarDay": "Webinar day 10th September 2024",
+    "headline": "Boost Your Mood & Get Back Your Energy",
+    "saveSpot": "Save your spot"
+  },
+  "footer": {
+    "contactUs": "Contact us",
+    "copyright": "© 2024 Oviva Care. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms of Service",
+    "cookies": "Cookies"
+  }
+}

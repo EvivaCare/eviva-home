@@ -1,0 +1,65 @@
+/**
+ * Oviva Care – Design tokens (Figma)
+ * Colores, tipografía, espaciado, animaciones
+ */
+@import url('https://fonts.googleapis.com/css2?family=Fahkwang:ital,wght@0,400;0,700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,900&family=Raleway:wght@0,400;0,500&display=swap');
+
+:root {
+  /* Colores – Brand */
+  --color-brand-magenta: #a6035d;
+  --color-brand-700: #82024a;
+  /* Grey */
+  --color-grey-black: #0d0c0d;
+  --color-grey-white: #faf9fa;
+  --color-grey-200: #e7e4e6;
+  --color-grey-400: #9e949a;
+  --color-grey-700: #363033;
+  /* Orange */
+  --color-orange: #f68e3d;
+  --color-orange-10: rgba(246, 142, 61, 0.1);
+  --color-orange-20: rgba(246, 142, 61, 0.2);
+  --color-orange-80: rgba(246, 142, 61, 0.8);
+  /* Aliases */
+  --color-text-primary: var(--color-grey-black);
+  --color-text-on-dark: var(--color-grey-white);
+  --color-bg-page: var(--color-grey-white);
+  --color-bg-button: var(--color-brand-magenta);
+  --color-accent-orange: var(--color-orange);
+
+  /* Tipografía */
+  --font-heading: 'Fahkwang', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-accent: 'Raleway', sans-serif;
+  --font-heading-1-size: 66px;
+  --font-heading-2-size: 41px;
+  --font-heading-3-size: 36px;
+  --font-heading-4-size: 29px;
+  --font-heading-5-size: 23px;
+  --font-heading-6-size: 20px;
+  --font-body-size: 18px;
+  --font-tiny-size: 10px;
+
+  /* Espaciado */
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-56: 56px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-128: 128px;
+  --spacing-156: 156px;
+
+  /* Border radius */
+  --radius-24: 24px;
+  --radius-32: 32px;
+  --radius-64: 64px;
+  --radius-100: 100px;
+  --radius-full: 50%;
+
+  /* Animaciones */
+  --animate-duration: 0.4s;
+  --animate-duration-slow: 0.6s;
+  --animate-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}

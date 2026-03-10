@@ -1,0 +1,25 @@
+---
+interface Props { variant?: 'default' | 'reversed' }
+const { variant = 'default' } = Astro.props;
+---
+
+<div class={`wave-sep wave-sep-${variant}`} aria-hidden="true">
+  <svg viewBox="0 0 1512 130" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    {variant === 'reversed' ? (
+      <>
+        <path d="M0 0 Q378 65 756 30 T1512 40 V130 H0 Z" fill="var(--color-orange-20)" />
+        <path d="M0 25 Q378 90 756 50 T1512 65 V130 H0 Z" fill="var(--color-grey-white)" />
+      </>
+    ) : (
+      <>
+        <path d="M0 65 Q378 0 756 65 T1512 65 V130 H0 Z" fill="var(--color-orange-20)" />
+        <path d="M0 80 Q378 20 756 80 T1512 80 V130 H0 Z" fill="var(--color-grey-white)" />
+      </>
+    )}
+  </svg>
+</div>
+
+<style>
+  .wave-sep { width: 100%; height: 130px; line-height: 0; overflow: hidden; }
+  .wave-sep svg { width: 100%; height: 100%; display: block; }
+</style>

@@ -1,0 +1,101 @@
+---
+import ButtonPrimary from './Button/ButtonPrimary.astro';
+interface Props { t: typeof import('../locales/en.json') }
+const { t } = Astro.props;
+---
+
+<section class="countdown" aria-label="Countdown">
+  <div class="countdown-wave" aria-hidden="true">
+    <img src="https://www.figma.com/api/mcp/asset/37f6e8cf-0315-4962-8a42-d3ece50553e9" alt="" width="1512" height="620" />
+    <img class="countdown-wave-overlay" src="https://www.figma.com/api/mcp/asset/c5605fbe-0c36-4064-999d-95e249e458a2" alt="" width="1512" height="620" />
+  </div>
+  <h2 class="font-heading-1 countdown-title reveal-blur">{t.countdown.title}</h2>
+  <div class="countdown-units reveal" style="transition-delay: 0.2s">
+    <div class="countdown-unit">
+      <div class="countdown-number magnetic" id="cd-days" data-count>5</div>
+      <span class="countdown-label">{t.countdown.days}</span>
+    </div>
+    <div class="countdown-unit">
+      <div class="countdown-number magnetic" id="cd-hours" data-count>16</div>
+      <span class="countdown-label">{t.countdown.hours}</span>
+    </div>
+    <div class="countdown-unit">
+      <div class="countdown-number magnetic" id="cd-minutes" data-count>43</div>
+      <span class="countdown-label">{t.countdown.minutes}</span>
+    </div>
+  </div>
+  <div class="reveal" style="transition-delay: 0.4s">
+    <ButtonPrimary href="#register" label={t.countdown.saveSpot} />
+  </div>
+</section>
+
+<script>
+  function animateCountTo(el: HTMLElement, target: number) {
+    const current = parseInt(el.textContent || '0');
+    if (current === target) return;
+    el.classList.add('count-animate');
+    setTimeout(() => {
+      el.textContent = String(target);
+      el.classList.remove('count-animate');
+    }, 200);
+  }
+
+  function updateCountdown() {
+    const target = new Date('2024-09-10T12:00:00+02:00').getTime();
+    const now = Date.now();
+    const diff = Math.max(0, target - now);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const dEl = document.getElementById('cd-days');
+    const hEl = document.getElementById('cd-hours');
+    const mEl = document.getElementById('cd-minutes');
+    if (dEl) animateCountTo(dEl, days);
+    if (hEl) animateCountTo(hEl, hours);
+    if (mEl) animateCountTo(mEl, minutes);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+</script>
+
+<style>
+  .countdown {
+    position: relative; height: 620px;
+    padding: var(--spacing-80) var(--spacing-156);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: var(--spacing-64); overflow: hidden;
+  }
+  .countdown-wave { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .countdown-wave img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .countdown-wave-overlay { transform: rotate(180deg) scaleY(-1); }
+  .countdown-title { position: relative; margin: 0; color: var(--color-text-primary); text-align: center; white-space: nowrap; }
+  .countdown-units { position: relative; display: flex; justify-content: center; gap: var(--spacing-32); width: 342px; }
+  .countdown-unit { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-16); }
+  .countdown-number {
+    width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;
+    background: var(--color-grey-white); border-radius: var(--radius-100);
+    font-family: var(--font-body); font-size: var(--font-heading-3-size); font-weight: 700;
+    color: var(--color-text-primary); letter-spacing: 1.8px; line-height: 1.2;
+    transition: transform 0.4s var(--ease-spring), box-shadow 0.4s ease;
+  }
+  .countdown-number:hover {
+    transform: scale(1.12);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+  }
+  .countdown-label {
+    font-family: var(--font-accent); font-size: var(--font-heading-6-size); font-weight: 500;
+    color: black; letter-spacing: 2px; text-transform: uppercase; text-align: center; width: 102px; line-height: 1.6;
+  }
+  @media (max-width: 768px) {
+    .countdown { padding: var(--spacing-40) 16px; height: auto; min-height: 420px; gap: var(--spacing-40); }
+    .countdown-title { white-space: normal; font-size: 46px; }
+    .countdown-units { width: auto; gap: var(--spacing-24); }
+    .countdown-number { width: 72px; height: 72px; font-size: 32px; }
+    .countdown-label { font-size: 14px; width: 80px; }
+  }
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .countdown { padding: var(--spacing-40) var(--spacing-24); height: auto; min-height: 500px; }
+    .countdown-title { white-space: normal; }
+    .countdown-units { width: auto; }
+  }
+</style>

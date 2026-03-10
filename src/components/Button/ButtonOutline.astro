@@ -1,0 +1,34 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  class?: string;
+}
+const { href, label, class: className = '' } = Astro.props;
+---
+
+<a href={href} class={`btn-outline font-heading-6 ${className}`.trim()}>
+  {label}
+</a>
+
+<style>
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-8) var(--spacing-24);
+    color: var(--color-text-primary);
+    background: transparent;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    border-bottom: 3px solid var(--color-grey-black);
+    border-radius: 0;
+    cursor: pointer;
+    transition: opacity var(--animate-duration) var(--animate-ease);
+  }
+  .btn-outline:hover {
+    opacity: 0.8;
+  }
+</style>

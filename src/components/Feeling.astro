@@ -1,0 +1,69 @@
+---
+interface Props { t: typeof import('../locales/en.json') }
+const { t } = Astro.props;
+const items = (t.feeling as { items: { strong: string; text: string }[] }).items;
+---
+
+<section class="feeling-section">
+  <div class="feeling-inner">
+    <div class="feeling-content">
+      <h2 class="font-heading-1 reveal-blur">{t.feeling.titleLine1}<br />{t.feeling.titleLine2}</h2>
+      <ul class="feeling-list">
+        {items.map((item, i) => (
+          <li class="reveal-left" style={`transition-delay: ${0.15 + i * 0.1}s`}>
+            <span class="bullet-blob" aria-hidden="true">
+              <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M47.5 8C62 6 82 14 88 32C94 50 86 72 72 82C58 92 34 94 20 84C6 74 2 52 8 36C14 20 33 10 47.5 8Z" fill="var(--color-orange)" opacity="0.15" stroke="var(--color-orange)" stroke-width="2" stroke-opacity="0.3"/>
+              </svg>
+            </span>
+            <span class="feeling-text"><strong>{item.strong}</strong> {item.text}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="feeling-image reveal-3d img-hover-zoom">
+      <img src="https://www.figma.com/api/mcp/asset/183f9d43-7455-4902-aba5-ae6b4a3f1bdc" alt="" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .feeling-section { width: 100%; overflow: hidden; }
+  .feeling-inner {
+    max-width: 1512px; margin: 0 auto;
+    display: flex; align-items: stretch; justify-content: space-between;
+    padding: var(--spacing-80) 0; padding-left: var(--spacing-156);
+  }
+  .feeling-content { flex: 0 0 500px; display: flex; flex-direction: column; gap: var(--spacing-40); }
+  .feeling-content h2 { margin: 0; }
+  .feeling-image {
+    flex: 0 0 743px;
+    border-radius: var(--radius-32) 0 0 var(--radius-32);
+    overflow: hidden; position: relative;
+  }
+  .feeling-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .feeling-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--radius-24); }
+  .feeling-list li { display: flex; align-items: flex-start; padding-right: var(--spacing-32); }
+  .bullet-blob { flex-shrink: 0; width: 96px; height: 96px; display: block; margin-right: -32px; position: relative; z-index: 1; }
+  .bullet-blob svg { width: 100%; height: 100%; }
+  .feeling-text {
+    flex: 1; font-family: var(--font-body); font-size: var(--font-heading-6-size);
+    color: rgba(0,0,0,0.8); letter-spacing: 2px; text-transform: uppercase;
+    line-height: 1.6; padding-top: var(--spacing-32); margin-right: -32px;
+  }
+  .feeling-text strong { font-weight: 700; }
+  @media (max-width: 768px) {
+    .feeling-inner { flex-direction: column; padding-left: 16px; padding-right: 16px; gap: var(--spacing-32); }
+    .feeling-content { flex: none; max-width: 100%; }
+    .feeling-image { flex: none; width: 100%; height: 343px; border-radius: var(--radius-32); min-height: unset; }
+    .bullet-blob { width: 48px; height: 48px; margin-right: -12px; }
+    .feeling-text { font-size: 16px; letter-spacing: 1px; padding-top: var(--spacing-8); }
+    .feeling-list { gap: var(--spacing-8); }
+    .feeling-list li { padding-right: 0; }
+  }
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .feeling-inner { flex-direction: column; padding-left: var(--spacing-24); padding-right: var(--spacing-24); gap: var(--spacing-40); }
+    .feeling-content { flex: none; max-width: 100%; }
+    .feeling-image { flex: none; width: 100%; border-radius: var(--radius-32); min-height: 300px; }
+  }
+</style>

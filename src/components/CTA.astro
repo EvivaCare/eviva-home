@@ -1,0 +1,84 @@
+---
+import ButtonPrimary from './Button/ButtonPrimary.astro';
+interface Props { t: typeof import('../locales/en.json') }
+const { t } = Astro.props;
+---
+
+<section class="section-cta" id="register">
+  <div class="cta-wave" aria-hidden="true">
+    <img src="https://www.figma.com/api/mcp/asset/c5a2c842-e6fb-4219-bcb2-4fbf4e8b7b5a" alt="" width="1512" height="730" />
+    <img class="cta-wave-overlay" src="https://www.figma.com/api/mcp/asset/0a8eb8a6-8d07-4f92-bc4b-c798b12786aa" alt="" width="1512" height="730" />
+  </div>
+  <div class="cta-image" aria-hidden="true">
+    <div class="cta-image-flip">
+      <div class="cta-image-crop">
+        <img class="parallax" data-speed="-0.1" src="https://www.figma.com/api/mcp/asset/df93ac3a-6675-4549-83fb-5c4797619774" alt="" />
+      </div>
+    </div>
+  </div>
+  <div class="cta-content">
+    <h2 class="font-heading-3 reveal-blur" style="color: var(--color-text-primary); margin: 0; text-transform: uppercase">{t.cta.signUp}</h2>
+    <div class="cta-webinar-info reveal" style="transition-delay: 0.2s">
+      <p class="font-heading-5" style="color: var(--color-text-primary); margin: 0; text-transform: uppercase; text-align: center">{t.cta.webinarDay}</p>
+      <h3 class="font-heading-2" style="color: var(--color-text-primary); margin: 0; text-align: center">{t.cta.headline}</h3>
+    </div>
+    <div class="reveal" style="transition-delay: 0.4s">
+      <ButtonPrimary href="#" label={t.cta.saveSpot} />
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-cta {
+    position: relative; min-height: 730px;
+    display: flex; align-items: center; justify-content: flex-end;
+    padding: var(--spacing-80) var(--spacing-156); overflow: hidden;
+  }
+  .cta-wave { position: absolute; inset: 0; pointer-events: none; }
+  .cta-wave img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .cta-wave-overlay { transform: rotate(180deg) scaleY(-1); }
+  .cta-image {
+    position: absolute; bottom: 0; left: 0;
+    width: 644px; height: 730px;
+  }
+  .cta-image-flip {
+    width: 100%; height: 100%;
+    transform: rotate(180deg) scaleY(-1);
+  }
+  .cta-image-crop {
+    width: 100%; height: 100%;
+    overflow: hidden; border-radius: 4px;
+    position: relative;
+  }
+  .cta-image-crop img {
+    position: absolute; top: 0;
+    left: -24.22%; width: 188.2%; height: 100%;
+    object-fit: cover;
+  }
+  .cta-content {
+    position: relative; z-index: 2; max-width: 698px;
+    display: flex; flex-direction: column; align-items: center; gap: var(--spacing-64); text-align: center;
+  }
+  .cta-webinar-info { display: flex; flex-direction: column; gap: 23px; width: 100%; }
+  @media (max-width: 768px) {
+    .section-cta {
+      padding: var(--spacing-40) 16px;
+      min-height: 600px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .cta-image {
+      position: relative; left: auto; bottom: auto;
+      width: 300px; height: 380px; margin: 0 auto;
+    }
+    .cta-content { max-width: 100%; gap: var(--spacing-32); }
+    .cta-content h2 { font-size: 32px; }
+    .cta-webinar-info { gap: 16px; }
+  }
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .section-cta { padding: var(--spacing-80) var(--spacing-24); justify-content: center; }
+    .cta-image { width: 400px; height: 500px; }
+    .cta-content { max-width: 600px; }
+  }
+</style>

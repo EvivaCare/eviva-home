@@ -1,0 +1,118 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: 'es' | 'en';
+  canonicalUrl?: string;
+  noindex?: boolean;
+}
+const { title, description, lang, canonicalUrl, noindex = false } = Astro.props;
+const siteUrl = Astro.url.origin;
+const canonical = canonicalUrl ?? `${siteUrl}/${lang}/`;
+const otherLang = lang === 'es' ? 'en' : 'es';
+const otherHref = `${siteUrl}/${otherLang}/`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang} href={canonical} />
+    <link rel="alternate" hreflang={otherLang} href={otherHref} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/en/`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_GB'} />
+    <meta property="og:locale:alternate" content={lang === 'es' ? 'en_GB' : 'es_ES'} />
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      // ────────────────────────────────────────────
+      // 1. Scroll-reveal with IntersectionObserver
+      // ────────────────────────────────────────────
+      const revealSelectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur, .reveal-3d';
+      const revealEls = document.querySelectorAll(revealSelectors);
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+      );
+      revealEls.forEach((el) => revealObserver.observe(el));
+
+      // ────────────────────────────────────────────
+      // 2. Parallax on scroll
+      // ────────────────────────────────────────────
+      const parallaxEls = document.querySelectorAll<HTMLElement>('.parallax[data-speed]');
+      let ticking = false;
+
+      function updateParallax() {
+        const scrollY = window.scrollY;
+        parallaxEls.forEach((el) => {
+          const speed = parseFloat(el.dataset.speed || '0');
+          const rect = el.getBoundingClientRect();
+          const center = rect.top + rect.height / 2;
+          const viewCenter = window.innerHeight / 2;
+          const offset = (center - viewCenter) * speed;
+          el.style.transform = `translateY(${offset}px)`;
+        });
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }, { passive: true });
+      updateParallax();
+
+      // ────────────────────────────────────────────
+      // 3. Magnetic hover effect
+      // ────────────────────────────────────────────
+      document.querySelectorAll<HTMLElement>('.magnetic').forEach((el) => {
+        el.addEventListener('mousemove', (e) => {
+          const rect = el.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        });
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = '';
+        });
+      });
+
+      // ────────────────────────────────────────────
+      // 4. Wave separator scroll-driven sway
+      // ────────────────────────────────────────────
+      const waveSeps = document.querySelectorAll<HTMLElement>('.wave-sep svg');
+      window.addEventListener('scroll', () => {
+        waveSeps.forEach((svg) => {
+          const rect = svg.getBoundingClientRect();
+          const progress = 1 - (rect.top / window.innerHeight);
+          if (progress > 0 && progress < 2) {
+            const scaleX = 1 + Math.sin(progress * Math.PI) * 0.01;
+            svg.style.transform = `scaleX(${scaleX})`;
+          }
+        });
+      }, { passive: true });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+---
+import ButtonOutline from './Button/ButtonOutline.astro';
+interface Props { t: typeof import('../locales/en.json'); lang: string }
+const { t, lang } = Astro.props;
+---
+
+<footer class="footer section">
+  <div class="footer-top">
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook">
+        <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.9 0H2.1C0.94 0 0 0.94 0 2.1V21.9C0 23.06 0.94 24 2.1 24H11.025V14.7H8.325V11.1H11.025V8.4C11.025 5.73 12.66 4.275 15.045 4.275C16.185 4.275 17.175 4.365 17.46 4.395V7.185H15.81C14.52 7.185 14.28 7.8 14.28 8.685V11.1H17.355L16.95 14.7H14.28V24H18.9C20.06 24 21 23.06 21 21.9V2.1C21 0.94 20.06 0 18.9 0Z" fill="var(--color-grey-black)"/>
+        </svg>
+      </a>
+      <a href="#" aria-label="LinkedIn">
+        <svg width="21" height="24" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19.2 0H1.8C0.81 0 0 0.81 0 1.8V19.2C0 20.19 0.81 21 1.8 21H19.2C20.19 21 21 20.19 21 19.2V1.8C21 0.81 20.19 0 19.2 0ZM6.36 17.88H3.24V8.1H6.36V17.88ZM4.8 6.72C3.78 6.72 2.97 5.91 2.97 4.89C2.97 3.87 3.78 3.06 4.8 3.06C5.82 3.06 6.63 3.87 6.63 4.89C6.63 5.91 5.82 6.72 4.8 6.72ZM17.88 17.88H14.76V13.14C14.76 11.94 14.73 10.38 13.08 10.38C11.4 10.38 11.16 11.7 11.16 13.05V17.88H8.04V8.1H11.04V9.54H11.07C11.49 8.73 12.54 7.86 14.1 7.86C17.25 7.86 17.88 9.93 17.88 12.6V17.88Z" fill="var(--color-grey-black)"/>
+        </svg>
+      </a>
+      <a href="#" aria-label="Instagram">
+        <svg width="21" height="24" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.7 0H6.3C2.82 0 0 2.82 0 6.3V14.7C0 18.18 2.82 21 6.3 21H14.7C18.18 21 21 18.18 21 14.7V6.3C21 2.82 18.18 0 14.7 0ZM10.5 15.12C7.95 15.12 5.88 13.05 5.88 10.5C5.88 7.95 7.95 5.88 10.5 5.88C13.05 5.88 15.12 7.95 15.12 10.5C15.12 13.05 13.05 15.12 10.5 15.12ZM15.54 6.3C14.85 6.3 14.28 5.73 14.28 5.04C14.28 4.35 14.85 3.78 15.54 3.78C16.23 3.78 16.8 4.35 16.8 5.04C16.8 5.73 16.23 6.3 15.54 6.3Z" fill="var(--color-grey-black)"/>
+          <path d="M10.5 7.56C8.88 7.56 7.56 8.88 7.56 10.5C7.56 12.12 8.88 13.44 10.5 13.44C12.12 13.44 13.44 12.12 13.44 10.5C13.44 8.88 12.12 7.56 10.5 7.56Z" fill="var(--color-grey-black)"/>
+        </svg>
+      </a>
+    </div>
+    <ButtonOutline href="#" label={t.footer.contactUs} />
+  </div>
+  <div class="footer-bottom">
+    <p class="font-tiny" style="margin: 0">{t.footer.copyright}</p>
+    <nav class="footer-links" aria-label="Footer">
+      <a href={lang === 'es' ? '/en/' : '/es/'} class="footer-link">{lang === 'es' ? 'English' : 'Español'}</a>
+      <a href="#" class="footer-link">{t.footer.privacy}</a>
+      <a href="#" class="footer-link">{t.footer.terms}</a>
+      <a href="#" class="footer-link">{t.footer.cookies}</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding-top: var(--spacing-16);
+    padding-bottom: var(--spacing-16);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-24);
+  }
+  .footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-social { display: flex; gap: var(--spacing-16); align-items: center; }
+  .footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-primary);
+    text-decoration: none;
+  }
+  .footer-social a:hover { opacity: 0.7; }
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-links { display: flex; gap: var(--spacing-24); }
+  .footer-link {
+    font-family: var(--font-body);
+    font-size: var(--font-tiny-size);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  .footer-link:hover { text-decoration: underline; }
+  @media (max-width: 768px) {
+    .footer { padding-left: 16px; padding-right: 16px; padding-top: var(--spacing-16); padding-bottom: var(--spacing-16); }
+    .footer-top, .footer-bottom { flex-direction: column; gap: var(--spacing-16); text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: var(--spacing-16); }
+    .footer-link { font-size: 12px; }
+  }
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .footer-top, .footer-bottom { flex-direction: column; gap: var(--spacing-16); text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
